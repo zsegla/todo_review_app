@@ -12,6 +12,9 @@ class Todo:
 
 
 class TodoManager:
+    """
+    Manages a list of Todo items, providing methods to add, list, complete, delete, and search todos.
+    """
     def __init__(self):
         self.todos = []
 
@@ -34,3 +37,9 @@ class TodoManager:
             del self.todos[index]
             return True
         return False
+
+    def search_todos(self, keyword):
+        """
+        Returns a list of todos whose titles contain the given keyword (case-insensitive).
+        """
+        return [todo for todo in self.todos if keyword.lower() in todo.title.lower()]
