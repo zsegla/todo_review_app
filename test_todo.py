@@ -28,5 +28,14 @@ class TestTodoManager(unittest.TestCase):
         todos = self.manager.list_todos()
         self.assertEqual(len(todos), 2)
 
+    def test_search_todos(self):
+        self.manager.add_todo("Buy milk")
+        self.manager.add_todo("Read book")
+        self.manager.add_todo("Buy bread")
+        results = self.manager.search_todos("buy")
+        self.assertEqual(len(results), 2)
+        self.assertTrue(any(todo.title == "Buy milk" for todo in results))
+        self.assertTrue(any(todo.title == "Buy bread" for todo in results))
+
 if __name__ == "__main__":
     unittest.main()

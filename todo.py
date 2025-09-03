@@ -34,3 +34,9 @@ class TodoManager:
             del self.todos[index]
             return True
         return False
+
+    def search_todos(self, keyword):
+        """
+        Returns a list of todos whose titles contain the given keyword (case-insensitive).
+        """
+        return [todo for todo in self.todos if keyword.lower() in todo.title.lower()]
