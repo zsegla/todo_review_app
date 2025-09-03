@@ -12,6 +12,9 @@ class Todo:
 
 
 class TodoManager:
+    """
+    Manages a list of Todo items, providing methods to add, list, complete, delete, and search todos.
+    """
     def __init__(self):
         self.todos = []
 
